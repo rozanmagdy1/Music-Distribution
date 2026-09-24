@@ -4,6 +4,10 @@ namespace MusicDistribution.Application.Interfaces;
 
 public interface ITrackDistributionRepository
 {
+    Task<IReadOnlyList<TrackDistribution>> GetByTrackIdAsync(
+        int trackId,
+        CancellationToken cancellationToken = default);
+
     Task<IReadOnlyList<TrackDistribution>> GetDistributionsAsync(
         int trackId,
         IReadOnlyCollection<int> dspIds,

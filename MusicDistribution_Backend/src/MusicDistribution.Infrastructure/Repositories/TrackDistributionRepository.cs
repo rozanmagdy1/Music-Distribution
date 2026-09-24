@@ -7,6 +7,14 @@ namespace MusicDistribution.Infrastructure.Repositories;
 
 public class TrackDistributionRepository(AppDbContext dbContext) : ITrackDistributionRepository
 {
+    public async Task<IReadOnlyList<TrackDistribution>> GetByTrackIdAsync(
+        int trackId,
+        CancellationToken cancellationToken = default) =>
+        await dbContext.TrackDistributions.AsNoTracking()
+            .Where(distribution => distribution.TrackId == trackId)
+            .OrderBy(distribution => distribution.DspId)
+            .ToListAsync(cancellationToken);
+
     public async Task<IReadOnlyList<TrackDistribution>> GetDistributionsAsync(
         int trackId,
         IReadOnlyCollection<int> dspIds,

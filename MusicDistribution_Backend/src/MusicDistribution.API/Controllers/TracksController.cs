@@ -8,7 +8,7 @@ namespace MusicDistribution.API.Controllers;
 
 [ApiController]
 [Route("api/tracks")]
-public class TracksController(ITrackService trackService) : ControllerBase
+public class TracksController(ITrackService trackService, ITrackDistributionService distributionService) : ControllerBase
 {
     [HttpGet]
     [ProducesResponseType(typeof(IReadOnlyList<TrackDto>), StatusCodes.Status200OK)]
@@ -27,6 +27,22 @@ public class TracksController(ITrackService trackService) : ControllerBase
     {
         var track = await trackService.GetByIdAsync(id, cancellationToken);
         return track is null ? NotFound() : Ok(track);
+    }
+
+    [HttpGet("{id:int}/distributions")]
+    [ProducesResponseType(typeof(IReadOnlyList<TrackDistributionDto>), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status404NotFound)]
+    public async Task<ActionResult<IReadOnlyList<TrackDistributionDto>>> GetTrackDistributions(
+        int id,
+        CancellationToken cancellationToken)
+    {
+        if (await trackService.GetByIdAsync(id, cancellationToken) is null)
+        {
+            return NotFound();
+        }
+
+        var distributions = await distributionService.GetForTrackAsync(id, cancellationToken);
+        return Ok(distributions);
     }
 
     [HttpPost]

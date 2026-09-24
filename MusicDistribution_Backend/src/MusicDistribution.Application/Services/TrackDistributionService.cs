@@ -8,6 +8,14 @@ namespace MusicDistribution.Application.Services;
 public class TrackDistributionService(
     ITrackDistributionRepository trackDistributionRepository) : ITrackDistributionService
 {
+    public async Task<IReadOnlyList<TrackDistributionDto>> GetForTrackAsync(
+        int trackId,
+        CancellationToken cancellationToken = default)
+    {
+        var distributions = await trackDistributionRepository.GetByTrackIdAsync(trackId, cancellationToken);
+        return distributions.Select(ToDto).ToArray();
+    }
+
     public async Task<TrackDistributionResult> DistributeAsync(
         int trackId,
         IReadOnlyCollection<int> requestedDspIds,
