@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using MusicDistribution.Application.DTOs.TrackDistributions;
 using MusicDistribution.Application.DTOs.Tracks;
@@ -45,6 +46,7 @@ public class TracksController(ITrackService trackService) : ControllerBase
     }
 
     [HttpPost("{id:int}/distribute")]
+    [Authorize]
     [ProducesResponseType(typeof(TrackDistributionResult), StatusCodes.Status200OK)]
     [ProducesResponseType(typeof(TrackDistributionResult), StatusCodes.Status201Created)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
@@ -65,6 +67,7 @@ public class TracksController(ITrackService trackService) : ControllerBase
     }
 
     [HttpPatch("{id:int}/status")]
+    [Authorize]
     [ProducesResponseType(typeof(TrackDto), StatusCodes.Status200OK)]
     [ProducesResponseType(StatusCodes.Status400BadRequest)]
     [ProducesResponseType(StatusCodes.Status404NotFound)]
