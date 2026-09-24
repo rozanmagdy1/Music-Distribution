@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
-using MusicDistribution.Application.DTOs;
+using MusicDistribution.Application.DTOs.Artists;
 using MusicDistribution.Application.Interfaces;
 
 namespace MusicDistribution.API.Controllers;

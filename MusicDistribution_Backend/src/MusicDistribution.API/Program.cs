@@ -13,6 +13,12 @@ builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped<IArtistRepository, ArtistRepository>();
 builder.Services.AddScoped<IArtistService, ArtistService>();
+builder.Services.AddScoped<ITrackRepository, TrackRepository>();
+builder.Services.AddScoped<ITrackService, TrackService>();
+builder.Services.AddScoped<IDspRepository, DspRepository>();
+builder.Services.AddScoped<IDspService, DspService>();
+builder.Services.AddScoped<ITrackDistributionRepository, TrackDistributionRepository>();
+builder.Services.AddScoped<ITrackDistributionService, TrackDistributionService>();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();

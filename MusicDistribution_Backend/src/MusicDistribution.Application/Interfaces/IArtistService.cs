@@ -1,4 +1,4 @@
-using MusicDistribution.Application.DTOs;
+using MusicDistribution.Application.DTOs.Artists;
 
 namespace MusicDistribution.Application.Interfaces;
 

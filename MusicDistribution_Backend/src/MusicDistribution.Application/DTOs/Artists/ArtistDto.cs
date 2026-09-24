@@ -1,4 +1,4 @@
-namespace MusicDistribution.Application.DTOs;
+namespace MusicDistribution.Application.DTOs.Artists;
 
 public class ArtistDto
 {

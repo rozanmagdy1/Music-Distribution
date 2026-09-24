@@ -1,6 +1,6 @@
 using System.ComponentModel.DataAnnotations;
 
-namespace MusicDistribution.Application.DTOs;
+namespace MusicDistribution.Application.DTOs.Artists;
 
 public class ArtistCreateDto
 {

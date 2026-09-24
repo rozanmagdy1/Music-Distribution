@@ -1,4 +1,4 @@
-using MusicDistribution.Application.DTOs;
+using MusicDistribution.Application.DTOs.Artists;
 using MusicDistribution.Application.Interfaces;
 using MusicDistribution.Domain.Entities;
 
