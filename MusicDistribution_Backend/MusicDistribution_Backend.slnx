@@ -1,7 +1,6 @@
 <Solution>
-  <Project Path="src/MusicDistribution.Domain/MusicDistribution.Domain.csproj" />
-  <Project Path="src/MusicDistribution.Application/MusicDistribution.Application.csproj" />
-  <Project Path="src/MusicDistribution.Infrastructure/MusicDistribution.Infrastructure.csproj" />
   <Project Path="src/MusicDistribution.API/MusicDistribution.API.csproj" />
-  <Project Path="tests/MusicDistribution.Tests/MusicDistribution.Tests.csproj" />
+  <Project Path="src/MusicDistribution.Application/MusicDistribution.Application.csproj" />
+  <Project Path="src/MusicDistribution.Domain/MusicDistribution.Domain.csproj" />
+  <Project Path="src/MusicDistribution.Infrastructure/MusicDistribution.Infrastructure.csproj" />
 </Solution>
