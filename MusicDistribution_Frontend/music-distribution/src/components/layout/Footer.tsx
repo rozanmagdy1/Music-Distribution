@@ -1,3 +1,3 @@
 export function Footer() {
-  return <footer className="footer"><span>Northstar Music Distribution</span><span>Catalog workspace</span></footer>
+  return <footer className="footer"><span>Takwene / Music</span><span>Catalog workspace</span></footer>
 }
